@@ -4,10 +4,15 @@
   padding: 0;
 }
 
+.toDoZone {
+  position: relative;
+  top: 120px;
+}
+
 .block {
   max-width: 70%;
   margin: 10px auto;
-  padding: 13px;
+  padding: 1%;
 
   background-color: rgb(97, 99, 118);
   border-radius: 10px;
@@ -18,27 +23,42 @@
   color: white;
 }
 
+.block .mainPart {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .block .checker {
   height: 23px;
   width: 23px;
 
   position: relative;
-
-  border-radius: 50px;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .checker:hover {
   cursor: pointer;
 }
 
-.completedTodo {
-  border: 0px solid greenyellow;
+.block .completedPart {
+  height: inherit;
+  min-width: 30px;
 }
 
-.notCompletedTodo {
-  border: 0px solid red;
+.block .titlePart {
+  height: inherit;
+  width: 100%;
 }
 
+.block .titlePart .title {
+  margin-top: 0.7%;
+}
+
+.buttonPart {
+  min-width: 30px;
+  height: inherit;
+}
 .defaultButton {
   width: 23px;
   height: 23px;
@@ -51,7 +71,15 @@
   background-image: url("../../images/openArrow.png");
   background-size: cover;
 }
+.buttonPart .rotatingButton {
+  width: 23px;
+  height: 23px;
 
+  position: relative;
+  top: 50%;
+  right: -7px;
+  transform: translate(0, -50%);
+}
 .closedButton {
   transform: rotate(180deg);
 }
@@ -66,5 +94,6 @@
 .botoomBar {
   border-top: 2px solid white;
   padding-top: 10px;
-  transition: all 0.4s;
+  margin-top: 1%;
+  font-size: 20px;
 }

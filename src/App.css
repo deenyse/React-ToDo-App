@@ -4,15 +4,3 @@
   margin: 0;
   padding: 0;
 }
-
-.header {
-  max-width: 72%;
-  margin: 30px auto;
-
-  border-bottom: 3px solid rgb(124, 142, 223);
-
-  color: rgb(157, 172, 226);
-  font-family: "Nunito", sans-serif;
-  font-weight: bold;
-  font-size: 50px;
-}

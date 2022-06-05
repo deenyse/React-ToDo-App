@@ -16,13 +16,26 @@ function ToDoBlock(props) {
 
   return (
     <div className={`block`}>
-      <input className="checker" type="checkbox" />
-      <button
-        className="defaultButton closedButton"
-        onClick={bottomActiveChangeHandler}
-      ></button>
-
-      <label>{props.title}</label>
+      <div className="mainPart">
+        <span className="completedPart">
+          <input
+            checked={props.completed}
+            className="checker"
+            type="checkbox"
+          />
+        </span>
+        <div className="titlePart">
+          <h4 className="title">{props.title}</h4>
+        </div>
+        <div className="buttonPart">
+          <div className="rotatingButton">
+            <button
+              className="defaultButton closedButton"
+              onClick={bottomActiveChangeHandler}
+            />
+          </div>
+        </div>
+      </div>
       {isBootomActive && <div className="botoomBar">{props.body}</div>}
     </div>
   );

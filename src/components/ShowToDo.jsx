@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { setToDo } from "../Api/ToDoGetApi";
+import React from "react";
+
 import ToDoBlock from "./ToDoBlock";
 
-function ShowToDo() {
-  const [toDoList, setToDoList] = useState([]);
-
-  useEffect(() => {
-    setToDo(setToDoList);
-  }, []);
-
+function ShowToDo(props) {
   return (
     <div>
-      {toDoList.map((elem) => (
+      {props.toDoList.map((elem) => (
         <ToDoBlock key={elem.id} {...elem} />
       ))}
     </div>

@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.block {
+  max-width: 70%;
+  margin: 10px auto;
+  padding: 13px;
+
+  background-color: rgb(97, 99, 118);
+  border-radius: 10px;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+.block .checker {
+  height: 23px;
+  width: 23px;
+
+  position: relative;
+
+  border-radius: 50px;
+}
+
+.checker:hover {
+  cursor: pointer;
+}
+
+.completedTodo {
+  border: 0px solid greenyellow;
+}
+
+.notCompletedTodo {
+  border: 0px solid red;
+}
+
+.defaultButton {
+  width: 23px;
+  height: 23px;
+
+  background-color: transparent;
+  border: none;
+
+  transition: all 0.4s;
+
+  background-image: url("../../images/openArrow.png");
+  background-size: cover;
+}
+
+.closedButton {
+  transform: rotate(180deg);
+}
+.openedButton {
+  transform: rotate(0deg);
+}
+
+.defaultButton:hover {
+  cursor: pointer;
+}
+
+.botoomBar {
+  border-top: 2px solid white;
+  padding-top: 10px;
+  transition: all 0.4s;
+}

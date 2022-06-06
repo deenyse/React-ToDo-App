@@ -1,8 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Top.css";
 
 function TopPanel() {
   const topRef = React.createRef();
+
+  const [isSearch, setIsSearch] = useState(true);
+  const handeleSearchOpen = (event) => {
+    var classes = event.target.classList;
+    if (Array.from(classes).includes("openedBtnSearch")) {
+      classes.remove("openedBtnSearch");
+      setIsSearch(false);
+    } else {
+      classes.add("openedBtnSearch");
+      setIsSearch(true);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,10 +36,25 @@ function TopPanel() {
       <div className="inToDo">
         <h1>ToDo</h1>
         <div className="controlsBlock">
-          <button className="btnAdd" />
-          <button className="btnFilter" />
-          <button className="btnSearch" />
-          <button className="btnAuth" />
+          <div>
+            <button className="btnAdd" />
+          </div>
+          <div>
+            <button className="btnFilter" />
+          </div>
+          <div className="searchBlock ">
+            <button className="btnSearch" onClick={handeleSearchOpen} />
+            {isSearch && (
+              <input
+                type="text"
+                className="searchInput"
+                placeholder={"Search"}
+              />
+            )}
+          </div>
+          <div>
+            <button className="btnAuth" />
+          </div>
         </div>
       </div>
     </div>

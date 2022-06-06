@@ -12,6 +12,25 @@
   transition: all 0.4s;
 }
 
+.header {
+  position: fixed;
+  width: calc(70% + max(1%, 15px) * 2);
+
+  left: calc((100% - (70% + max(1%, 15px) * 2)) / 2);
+
+  margin: 30px auto;
+}
+
+.headerWide {
+  position: fixed;
+  top: -30px;
+  left: 0;
+
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+
 .inToDo {
   display: inline-flex;
   position: absolute;
@@ -37,16 +56,22 @@
 
   right: 20px;
 }
-.controlsBlock button {
+
+.controlsBlock div {
   position: relative;
+  display: inline-flex;
   top: 50%;
 
   transform: translate(0, -50%);
   transition: all 0.4s;
 
   margin: 0 7px;
+}
 
+.controlsBlock button {
   border: none;
+
+  transition: all 0.4s;
 
   background-color: transparent;
 
@@ -55,26 +80,8 @@
 }
 
 .controlsBlock button:hover {
-  transform: scale(1.5) translate(0, -35%);
-}
-
-.header {
-  position: fixed;
-  width: calc(70% + max(1%, 15px) * 2);
-
-  left: calc((100% - (70% + max(1%, 15px) * 2)) / 2);
-
-  margin: 30px auto;
-}
-
-.headerWide {
-  position: fixed;
-  top: -30px;
-  left: 0;
-
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
+  transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .btnAdd {
@@ -87,12 +94,47 @@
   background-size: cover;
 }
 
+.btnAuth {
+  background-image: url("../../images/accountIcon.png");
+  background-size: cover;
+}
+
 .btnSearch {
   background-image: url("../../images/searchIcon.png");
   background-size: cover;
 }
 
-.btnAuth {
-  background-image: url("../../images/accountIcon.png");
-  background-size: cover;
+.openedBtnSearch {
+  transition: all 0.4s;
+
+  width: 200px;
+  border-radius: 10px;
+  padding: 0, max(2%, 5px);
+}
+
+.searchInput {
+  transition: all 0.4s;
+
+  width: 80%;
+  height: 25px;
+
+  background-color: transparent;
+  border: none;
+
+  color: rgb(134, 183, 223);
+  font-weight: bold;
+
+  border-bottom: 2px solid rgb(157, 172, 226);
+  margin: auto;
+}
+
+.searchInput::placeholder {
+  color: rgb(131, 134, 196);
+  font-weight: bold;
+}
+
+.searchInput:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(157, 172, 226);
 }

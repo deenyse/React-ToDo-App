@@ -19,10 +19,10 @@ function ToDoBlock(props) {
       <div className="mainPart">
         <span className="completedPart">
           <input
-            checked={props.completed}
+            defaultChecked={props.completed}
             className="checker"
             type="checkbox"
-            readOnly // заглушка что бы не было ошибки, но блок не работатет
+            onChange={() => props.completeChanger(props.id)}
           />
         </span>
         <div className="titlePart">

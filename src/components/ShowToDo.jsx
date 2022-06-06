@@ -6,7 +6,11 @@ function ShowToDo(props) {
   return (
     <div className={"toDoZone"}>
       {props.toDoList.map((elem) => (
-        <ToDoBlock key={elem.id} {...elem} />
+        <ToDoBlock
+          key={elem.id}
+          {...elem}
+          completeChanger={props.completeChanger}
+        />
       ))}
     </div>
   );

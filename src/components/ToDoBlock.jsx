@@ -22,6 +22,7 @@ function ToDoBlock(props) {
             checked={props.completed}
             className="checker"
             type="checkbox"
+            readOnly // заглушка что бы не было ошибки, но блок не работатет
           />
         </span>
         <div className="titlePart">

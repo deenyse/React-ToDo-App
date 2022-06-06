@@ -12,7 +12,7 @@
 .block {
   max-width: 70%;
   margin: 10px auto;
-  padding: 1%;
+  padding: max(15px, 1%);
 
   background-color: rgb(97, 99, 118);
   border-radius: 10px;

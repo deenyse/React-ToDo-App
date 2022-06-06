@@ -13,6 +13,7 @@
 }
 
 .inToDo {
+  display: inline-flex;
   position: absolute;
   bottom: 0;
 
@@ -20,16 +21,49 @@
   height: 70px;
 }
 .defaultTop .inToDo h1 {
+  position: relative;
+  left: 20px;
+
   color: rgb(157, 172, 226);
   font-family: "Nunito", sans-serif;
   font-weight: bold;
   font-size: 50px;
 }
+
+.inToDo .controlsBlock {
+  position: absolute;
+
+  height: inherit;
+
+  right: 20px;
+}
+.controlsBlock button {
+  position: relative;
+  top: 50%;
+
+  transform: translate(0, -50%);
+  transition: all 0.4s;
+
+  margin: 0 7px;
+
+  border: none;
+
+  background-color: transparent;
+
+  width: 25px;
+  height: 25px;
+}
+
+.controlsBlock button:hover {
+  transform: scale(1.5) translate(0, -35%);
+}
+
 .header {
   position: fixed;
-  left: 14%;
+  width: calc(70% + max(1%, 15px) * 2);
 
-  width: 72%;
+  left: calc((100% - (70% + max(1%, 15px) * 2)) / 2);
+
   margin: 30px auto;
 }
 
@@ -41,4 +75,24 @@
   max-width: 100%;
   width: 100%;
   margin: 0;
+}
+
+.btnAdd {
+  background-image: url("../../images/plusIcon.png");
+  background-size: cover;
+}
+
+.btnFilter {
+  background-image: url("../../images/listIcon.png");
+  background-size: cover;
+}
+
+.btnSearch {
+  background-image: url("../../images/searchIcon.png");
+  background-size: cover;
+}
+
+.btnAuth {
+  background-image: url("../../images/accountIcon.png");
+  background-size: cover;
 }

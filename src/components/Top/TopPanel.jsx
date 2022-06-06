@@ -6,7 +6,7 @@ function TopPanel() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 30) {
+      if (window.pageYOffset > 35) {
         topRef.current.classList.add("headerWide");
       } else {
         topRef.current.classList.remove("headerWide");
@@ -23,6 +23,12 @@ function TopPanel() {
     <div ref={topRef} className="defaultTop header">
       <div className="inToDo">
         <h1>ToDo</h1>
+        <div className="controlsBlock">
+          <button className="btnAdd" />
+          <button className="btnFilter" />
+          <button className="btnSearch" />
+          <button className="btnAuth" />
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Top.css";
 
-function TopPanel() {
+function TopPanel(props) {
   const topRef = React.createRef();
 
-  const [isSearch, setIsSearch] = useState(true);
+  const [isSearch, setIsSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(NaN);
+
   const handeleSearchOpen = (event) => {
     var classes = event.target.classList;
     if (Array.from(classes).includes("openedBtnSearch")) {
@@ -49,6 +51,10 @@ function TopPanel() {
                 type="text"
                 className="searchInput"
                 placeholder={"Search"}
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                }}
               />
             )}
           </div>

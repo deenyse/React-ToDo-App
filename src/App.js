@@ -35,19 +35,19 @@ function App() {
   const filteredAndSearchedToDoList = useMemo(() => {
     switch (selectedFilter) {
       case "By Date":
-        console.log("By Date sort");
-        break;
+        return searchedToDoList.sort((a, b) => a - b);
       case "By Name":
-        console.log("By Name sort");
-        break;
+        return searchedToDoList.sort();
       case "Completed First":
-        console.log("Completed First sort");
-        break;
+        return [
+          ...[searchedToDoList.map((el) => el.completed)],
+          ...[searchedToDoList.map((el) => !el.completed)],
+        ];
       case "NotCompleted First":
-        console.log("NotCompleted First");
-        break;
+        return searchedToDoList.map((el) => !el.completed);
+      default:
+        return searchedToDoList;
     }
-    return searchedToDoList;
   }, [searchedToDoList, selectedFilter]);
 
   return (

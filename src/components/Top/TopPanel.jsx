@@ -9,7 +9,7 @@ function TopPanel(props) {
   const searchBlockRef = React.createRef();
 
   const [isFilter, setIsFilter] = useState(false);
-  //const [selectedFilter, setSelectedFilter] = props.selectParams;
+  const [selectedFilter, setSelectedFilter] = props.selectParams;
   const flterBlockRef = React.createRef();
 
   useEffect(() => {
@@ -62,7 +62,11 @@ function TopPanel(props) {
               onClick={() => setIsFilter(!isFilter)}
             />
             {isFilter && (
-              <select className="filterSelect">
+              <select
+                className="filterSelect"
+                value={selectedFilter}
+                onChange={(e) => setSelectedFilter(e.target.value)}
+              >
                 <option>By Date</option>
                 <option>By Name</option>
                 <option>Completed First</option>

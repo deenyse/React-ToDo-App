@@ -32,13 +32,34 @@ function App() {
     }
   }, [toDoList, searchQuery]);
 
+  const filteredAndSearchedToDoList = useMemo(() => {
+    switch (selectedFilter) {
+      case "By Date":
+        console.log("By Date sort");
+        break;
+      case "By Name":
+        console.log("By Name sort");
+        break;
+      case "Completed First":
+        console.log("Completed First sort");
+        break;
+      case "NotCompleted First":
+        console.log("NotCompleted First");
+        break;
+    }
+    return searchedToDoList;
+  }, [searchedToDoList, selectedFilter]);
+
   return (
     <div className="App">
       <TopPanel
         searchParams={[searchQuery, setSearchQuery]}
         selectParams={[selectedFilter, setSelectedFilter]}
       />
-      <ShowToDo toDoList={searchedToDoList} completeChanger={completeChanger} />
+      <ShowToDo
+        toDoList={filteredAndSearchedToDoList}
+        completeChanger={completeChanger}
+      />
     </div>
   );
 }

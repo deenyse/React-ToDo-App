@@ -38,13 +38,10 @@ function App() {
         return searchedToDoList.sort((a, b) => a - b);
       case "By Name":
         return searchedToDoList.sort();
-      case "Completed First":
-        return [
-          ...[searchedToDoList.map((el) => el.completed)],
-          ...[searchedToDoList.map((el) => !el.completed)],
-        ];
-      case "NotCompleted First":
-        return searchedToDoList.map((el) => !el.completed);
+      case "Completed":
+        return [...searchedToDoList].filter((el) => el.completed);
+      case "NotCompleted":
+        return [...searchedToDoList].filter((el) => !el.completed);
       default:
         return searchedToDoList;
     }

@@ -69,8 +69,8 @@ function TopPanel(props) {
               >
                 <option>By Date</option>
                 <option>By Name</option>
-                <option>Completed First</option>
-                <option>NotCompleted First</option>
+                <option>Completed</option>
+                <option>NotCompleted</option>
               </select>
             )}
           </div>

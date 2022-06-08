@@ -88,14 +88,48 @@
   background-size: cover;
 }
 
+.btnAuth {
+  background-image: url("../../images/accountIcon.png");
+  background-size: cover;
+}
+
 .btnFilter {
   background-image: url("../../images/listIcon.png");
   background-size: cover;
 }
 
-.btnAuth {
-  background-image: url("../../images/accountIcon.png");
-  background-size: cover;
+.openedBtnFilter {
+  transition: all 0.4s;
+
+  width: 200px;
+  border-radius: 10px;
+  padding: 0, max(2%, 5px);
+}
+
+.filterSelect {
+  transition: all 0.4s;
+
+  width: 80%;
+  height: 25px;
+
+  background-color: transparent;
+  border: none;
+
+  color: rgb(134, 183, 223);
+  font-weight: bold;
+
+  border-bottom: 2px solid rgb(157, 172, 226);
+  margin: auto;
+
+  outline: none;
+}
+
+.filterSelect option {
+  font-weight: bold;
+  color: rgb(134, 183, 223);
+  background-color: rgb(47, 48, 84);
+  outline: none;
+  border: none;
 }
 
 .btnSearch {

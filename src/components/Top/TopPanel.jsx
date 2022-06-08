@@ -8,18 +8,29 @@ function TopPanel(props) {
   const [searchQuery, setSearchQuery] = props.searchParams;
   const searchBlockRef = React.createRef();
 
-  //const [isFilter, setIsFilter] = useState(false);
+  const [isFilter, setIsFilter] = useState(false);
   //const [selectedFilter, setSelectedFilter] = props.selectParams;
-  //const flterBlockRef = React.createRef();
+  const flterBlockRef = React.createRef();
 
   useEffect(() => {
     if (isSearch) {
+      setIsFilter(false);
       searchBlockRef.current.classList.add("openedBtnSearch");
     } else {
       searchBlockRef.current.classList.remove("openedBtnSearch");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSearch]);
+
+  useEffect(() => {
+    if (isFilter) {
+      setIsSearch(false);
+      flterBlockRef.current.classList.add("openedBtnFilter");
+    } else {
+      flterBlockRef.current.classList.remove("openedBtnFilter");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFilter]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,13 +56,23 @@ function TopPanel(props) {
           <div>
             <button className="btnAdd" />
           </div>
-          <div className="filtterBlock ">
-            <button className="btnFilter" />
+          <div className="filtterBlock " ref={flterBlockRef}>
+            <button
+              className="btnFilter"
+              onClick={() => setIsFilter(!isFilter)}
+            />
+            {isFilter && (
+              <select className="filterSelect">
+                <option>By Date</option>
+                <option>By Name</option>
+                <option>Completed First</option>
+                <option>NotCompleted First</option>
+              </select>
+            )}
           </div>
-          <div className="searchBlock ">
+          <div className="searchBlock " ref={searchBlockRef}>
             <button
               className="btnSearch"
-              ref={searchBlockRef}
               onClick={() => setIsSearch(!isSearch)}
             />
             {isSearch && (

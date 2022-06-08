@@ -5,18 +5,21 @@ function TopPanel(props) {
   const topRef = React.createRef();
 
   const [isSearch, setIsSearch] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(NaN);
+  const [searchQuery, setSearchQuery] = props.searchParams;
+  const searchBlockRef = React.createRef();
 
-  const handeleSearchOpen = (event) => {
-    var classes = event.target.classList;
-    if (Array.from(classes).includes("openedBtnSearch")) {
-      classes.remove("openedBtnSearch");
-      setIsSearch(false);
+  //const [isFilter, setIsFilter] = useState(false);
+  //const [selectedFilter, setSelectedFilter] = props.selectParams;
+
+  useEffect(() => {
+    if (isSearch) {
+      searchBlockRef.current.classList.add("openedBtnSearch");
     } else {
-      classes.add("openedBtnSearch");
-      setIsSearch(true);
+      searchBlockRef.current.classList.remove("openedBtnSearch");
     }
-  };
+    console.log("isSearch state changed");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSearch]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +36,7 @@ function TopPanel(props) {
       window.removeEventListener("scroll", handleScroll);
     };
   });
+
   return (
     <div ref={topRef} className="defaultTop header">
       <div className="inToDo">
@@ -41,11 +45,15 @@ function TopPanel(props) {
           <div>
             <button className="btnAdd" />
           </div>
-          <div>
+          <div className="filtterBlock ">
             <button className="btnFilter" />
           </div>
           <div className="searchBlock ">
-            <button className="btnSearch" onClick={handeleSearchOpen} />
+            <button
+              className="btnSearch"
+              ref={searchBlockRef}
+              onClick={() => setIsSearch(!isSearch)}
+            />
             {isSearch && (
               <input
                 type="text"

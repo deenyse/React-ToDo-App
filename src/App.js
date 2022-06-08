@@ -6,6 +6,9 @@ import { setToDo } from "./Api/ToDoGetApi";
 
 function App() {
   const [toDoList, setToDoList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState("");
+
   //const [sortedToDoList, setSortedToDoList] = useState([]);
 
   useEffect(() => {
@@ -17,23 +20,25 @@ function App() {
     var toDoToChange = list.find((el) => el.id === id);
     toDoToChange.completed = !toDoToChange.completed;
     setToDoList(list);
-    console.log(list);
   };
 
-  function getSearchedToDoList(searchQuery) {
+  const searchedToDoList = useMemo(() => {
     if (searchQuery) {
-      return [...toDoList].map((el) =>
+      return [...toDoList].filter((el) =>
         el.title.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     } else {
-      return toDoList;
+      return [...toDoList];
     }
-  }
+  }, [toDoList, searchQuery]);
 
   return (
     <div className="App">
-      <TopPanel />
-      <ShowToDo toDoList={toDoList} completeChanger={completeChanger} />
+      <TopPanel
+        searchParams={[searchQuery, setSearchQuery]}
+        selectParams={[selectedFilter, setSelectedFilter]}
+      />
+      <ShowToDo toDoList={searchedToDoList} completeChanger={completeChanger} />
     </div>
   );
 }

@@ -5,13 +5,17 @@ import "./componentStyles/todoStyle.css";
 function ShowToDo(props) {
   return (
     <div className={"toDoZone"}>
-      {props.toDoList.map((elem) => (
-        <ToDoBlock
-          key={elem.id}
-          {...elem}
-          completeChanger={props.completeChanger}
-        />
-      ))}
+      {props.toDoList.length > 0 ? (
+        props.toDoList.map((elem) => (
+          <ToDoBlock
+            key={elem.id}
+            {...elem}
+            completeChanger={props.completeChanger}
+          />
+        ))
+      ) : (
+        <h1 className={"noToDoBlock"}>No ToDoS!</h1>
+      )}
     </div>
   );
 }

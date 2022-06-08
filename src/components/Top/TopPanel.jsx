@@ -10,6 +10,7 @@ function TopPanel(props) {
 
   //const [isFilter, setIsFilter] = useState(false);
   //const [selectedFilter, setSelectedFilter] = props.selectParams;
+  //const flterBlockRef = React.createRef();
 
   useEffect(() => {
     if (isSearch) {
@@ -17,7 +18,6 @@ function TopPanel(props) {
     } else {
       searchBlockRef.current.classList.remove("openedBtnSearch");
     }
-    console.log("isSearch state changed");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSearch]);
 

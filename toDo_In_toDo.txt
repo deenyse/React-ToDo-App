@@ -1,5 +1,4 @@
-sort,
-search, 
+filter,
 add,
 отображение сделаныхб
 

@@ -5,11 +5,9 @@ function ToDoBlock(props) {
 
   const bottomActiveChangeHandler = (event) => {
     setIsBootomActive(!isBootomActive);
-    if (Array.from(event.target.classList).includes("openedButton")) {
+    if (isBootomActive) {
       event.target.classList.remove("openedButton");
-      event.target.classList.add("closedButton");
     } else {
-      event.target.classList.remove("closedButton");
       event.target.classList.add("openedButton");
     }
   };
@@ -31,7 +29,7 @@ function ToDoBlock(props) {
         <div className="buttonPart">
           <div className="rotatingButton">
             <button
-              className="defaultButton closedButton"
+              className="defaultButton "
               onClick={bottomActiveChangeHandler}
             />
           </div>

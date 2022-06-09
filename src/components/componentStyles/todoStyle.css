@@ -80,7 +80,7 @@
   right: -7px;
   transform: translate(0, -50%);
 }
-.closedButton {
+.defaultButton {
   transform: rotate(180deg);
 }
 .openedButton {

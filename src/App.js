@@ -6,21 +6,28 @@ import { setToDo } from "./Api/ToDoGetApi";
 
 function App() {
   const [toDoList, setToDoList] = useState([]);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
-
-  //const [sortedToDoList, setSortedToDoList] = useState([]);
 
   useEffect(() => {
     setToDo(setToDoList);
   }, []);
 
-  const completeChanger = (id) => {
+  function completeChanger(id) {
     var list = [...toDoList];
     var toDoToChange = list.find((el) => el.id === id);
     toDoToChange.completed = !toDoToChange.completed;
     setToDoList(list);
-  };
+  }
+
+  function todoDeleter(idToDelete) {
+    setToDoList([...toDoList].filter((el) => el.id !== idToDelete));
+  }
+
+  function todoAdder(todoToAdd) {
+    setToDoList([...toDoList], { ...todoToAdd, id: Date.now() });
+  }
 
   const searchedToDoList = useMemo(() => {
     if (searchQuery) {
@@ -54,10 +61,12 @@ function App() {
       <TopPanel
         searchParams={[searchQuery, setSearchQuery]}
         selectParams={[selectedFilter, setSelectedFilter]}
+        todoAdder={todoAdder}
       />
       <ShowToDo
         toDoList={filteredAndSearchedToDoList}
         completeChanger={completeChanger}
+        todoDeleter={todoDeleter}
       />
     </div>
   );

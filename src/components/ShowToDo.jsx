@@ -11,6 +11,7 @@ function ShowToDo(props) {
             key={elem.id}
             {...elem}
             completeChanger={props.completeChanger}
+            todoDeleter={props.todoDeleter}
           />
         ))
       ) : (

@@ -3,14 +3,18 @@ import "./componentStyles/todoStyle.css";
 function ToDoBlock(props) {
   const [isBootomActive, setIsBootomActive] = useState(false);
 
-  const bottomActiveChangeHandler = (event) => {
+  function bottomActiveChangeHandler(event) {
     setIsBootomActive(!isBootomActive);
     if (isBootomActive) {
       event.target.classList.remove("openedButton");
     } else {
       event.target.classList.add("openedButton");
     }
-  };
+  }
+
+  function deleteHandler() {
+    props.todoDeleter(props.id);
+  }
 
   return (
     <div className={`block`}>
@@ -38,10 +42,10 @@ function ToDoBlock(props) {
       {isBootomActive && (
         <div className="botoomPart">
           <div className="bottomButtonBlock">
-            <button>Delete</button>
+            <button onClick={deleteHandler}>Delete</button>
             <button>Edit</button>
           </div>
-          <div className="botoomBar">{props.body}</div>
+          {props.body && <div className="botoomBar">{props.body}</div>}
         </div>
       )}
     </div>

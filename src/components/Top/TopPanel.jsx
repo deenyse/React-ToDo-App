@@ -110,8 +110,8 @@ function TopPanel(props) {
       >
         <input type="text" placeholder="Title here" />
         <textarea placeholder="Body here" />
-        <button>Submit</button>
         <button>Canel</button>
+        <button>Submit</button>
       </ToDoMaker>
     </>
   );

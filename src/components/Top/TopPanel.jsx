@@ -67,7 +67,8 @@ function TopPanel(props) {
                 value={selectedFilter}
                 onChange={(e) => setSelectedFilter(e.target.value)}
               >
-                <option>By Date</option>
+                <option>Newer</option>
+                <option>Older</option>
                 <option>By Name</option>
                 <option>Completed</option>
                 <option>NotCompleted</option>

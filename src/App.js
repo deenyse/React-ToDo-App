@@ -34,10 +34,12 @@ function App() {
 
   const filteredAndSearchedToDoList = useMemo(() => {
     switch (selectedFilter) {
-      case "By Date":
-        return searchedToDoList.sort((a, b) => a - b);
+      case "Newer":
+        return searchedToDoList.sort((a, b) => a.id - b.id);
+      case "Older":
+        return searchedToDoList.sort((a, b) => b.id - a.id);
       case "By Name":
-        return searchedToDoList.sort();
+        return searchedToDoList.sort((a, b) => a.title.localeCompare(b.title));
       case "Completed":
         return [...searchedToDoList].filter((el) => el.completed);
       case "NotCompleted":

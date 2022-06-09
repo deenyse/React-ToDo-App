@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -91,10 +91,43 @@
   cursor: pointer;
 }
 
-.botoomBar {
+.botoomPart {
+  position: relative;
+  top: 2px;
   border-top: 2px solid white;
-  padding-top: 10px;
-  margin-top: 1%;
+}
+
+.bottomButtonBlock {
+  width: 100%;
+  height: 30px;
+}
+
+.bottomButtonBlock button {
+  color: rgb(157, 172, 226);
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+
+  height: 30px;
+  width: 70px;
+
+  background: none;
+  border: none;
+}
+
+.bottomButtonBlock button:hover {
+  cursor: pointer;
+}
+
+.bottomButtonBlock button:nth-child(2) {
+  position: absolute;
+  right: 0px;
+}
+
+.botoomBar {
+  position: relative;
+  top: 2px;
+
   font-size: 20px;
 }
 

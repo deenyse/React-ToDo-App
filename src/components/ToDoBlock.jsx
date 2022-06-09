@@ -37,7 +37,15 @@ function ToDoBlock(props) {
           </div>
         </div>
       </div>
-      {isBootomActive && <div className="botoomBar">{props.body}</div>}
+      {isBootomActive && (
+        <div className="botoomPart">
+          <div className="bottomButtonBlock">
+            <button>Delete</button>
+            <button>Edit</button>
+          </div>
+          <div className="botoomBar">{props.body}</div>
+        </div>
+      )}
     </div>
   );
 }

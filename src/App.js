@@ -26,7 +26,8 @@ function App() {
   }
 
   function todoAdder(todoToAdd) {
-    setToDoList([...toDoList], { ...todoToAdd, id: Date.now() });
+    console.log(todoToAdd);
+    setToDoList([...toDoList, { ...todoToAdd, id: Date.now() }]);
   }
 
   const searchedToDoList = useMemo(() => {
@@ -42,9 +43,9 @@ function App() {
   const filteredAndSearchedToDoList = useMemo(() => {
     switch (selectedFilter) {
       case "Newer":
-        return searchedToDoList.sort((a, b) => a.id - b.id);
-      case "Older":
         return searchedToDoList.sort((a, b) => b.id - a.id);
+      case "Older":
+        return searchedToDoList.sort((a, b) => a.id - b.id);
       case "By Name":
         return searchedToDoList.sort((a, b) => a.title.localeCompare(b.title));
       case "Completed":

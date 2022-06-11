@@ -13,20 +13,6 @@ function TopPanel(props) {
   const [isFilter, setIsFilter] = useState(false);
   const [selectedFilter, setSelectedFilter] = props.selectParams;
 
-  const [addTitle, setAddTitle] = useState("");
-  const [addBody, setAddBody] = useState("");
-
-  function handleTodoAdd() {
-    if (!addTitle) return;
-    setIsActiveModal(false);
-    setAddBody("");
-    setAddTitle("");
-    props.todoAdder({
-      title: addTitle,
-      body: addBody,
-    });
-  }
-
   useEffect(() => {
     if (isSearch) {
       setIsFilter(false);
@@ -85,8 +71,8 @@ function TopPanel(props) {
                   <option>Newer</option>
                   <option>Older</option>
                   <option>By Name</option>
-                  <option>Completed</option>
-                  <option>NotCompleted</option>
+                  <option value="Completed">Completed first</option>
+                  <option value="NotCompleted">NotCompleted first</option>
                 </select>
               )}
             </div>
@@ -121,34 +107,8 @@ function TopPanel(props) {
       <ToDoMaker
         isActiveModal={isActiveModal}
         setIsActiveModal={setIsActiveModal}
-      >
-        <input
-          type="text"
-          placeholder="Title here"
-          value={addTitle}
-          onChange={(e) => {
-            setAddTitle(e.target.value);
-          }}
-        />
-        <textarea
-          placeholder="Body here"
-          value={addBody}
-          onChange={(e) => {
-            setAddBody(e.target.value);
-          }}
-        />
-        <div className="buttonArea">
-          <button
-            className="deleteButton"
-            onClick={() => {
-              setIsActiveModal(false);
-              setAddBody("");
-              setAddTitle("");
-            }}
-          />
-          <button className="applyButton" onClick={() => handleTodoAdd()} />
-        </div>
-      </ToDoMaker>
+        todoAdder={props.todoAdder}
+      ></ToDoMaker>
     </>
   );
 }

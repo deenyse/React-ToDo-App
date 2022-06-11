@@ -8,7 +8,7 @@ function App() {
   const [toDoList, setToDoList] = useState([]);
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState("Newer");
 
   useEffect(() => {
     setToDo(setToDoList);
@@ -28,7 +28,11 @@ function App() {
   function todoAdder(todoToAdd) {
     setToDoList([
       ...toDoList,
-      { ...todoToAdd, id: Date.now(), completed: false },
+      {
+        id: Date.now(),
+        completed: false,
+        ...todoToAdd,
+      },
     ]);
   }
 
@@ -51,9 +55,9 @@ function App() {
       case "By Name":
         return searchedToDoList.sort((a, b) => a.title.localeCompare(b.title));
       case "Completed":
-        return [...searchedToDoList].filter((el) => el.completed);
+        return searchedToDoList.sort((a, b) => b.completed - a.completed);
       case "NotCompleted":
-        return [...searchedToDoList].filter((el) => !el.completed);
+        return searchedToDoList.sort((a, b) => a.completed - b.completed);
       default:
         return searchedToDoList;
     }

@@ -59,6 +59,7 @@
   min-width: 30px;
   height: inherit;
 }
+
 .defaultButton {
   width: 23px;
   height: 23px;
@@ -93,26 +94,36 @@
 
 .botoomPart {
   position: relative;
-  top: 2px;
   border-top: 2px solid white;
 }
 
 .bottomButtonBlock {
   width: 100%;
   height: 30px;
+
+  margin-top: 10px;
 }
 
 .bottomButtonBlock button {
-  color: rgb(157, 172, 226);
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
-  font-size: 17px;
+  width: 25px;
+  height: 25px;
 
-  height: 30px;
-  width: 70px;
-
-  background: none;
+  background-color: transparent;
   border: none;
+
+  transition: all 0.4s;
+
+  background-size: cover;
+}
+
+.whiteDeleteButton {
+  background-image: url("../../images/whiteDeleteIcon.png");
+  background-size: cover;
+}
+
+.editButton {
+  background-image: url("../../images/write.png");
+  background-size: cover;
 }
 
 .bottomButtonBlock button:hover {
@@ -125,10 +136,11 @@
 }
 
 .botoomBar {
-  position: relative;
-  top: 2px;
+  padding-top: 3px;
 
   font-size: 20px;
+
+  height: auto;
 }
 
 .noToDoBlock {

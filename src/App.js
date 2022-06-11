@@ -26,8 +26,10 @@ function App() {
   }
 
   function todoAdder(todoToAdd) {
-    console.log(todoToAdd);
-    setToDoList([...toDoList, { ...todoToAdd, id: Date.now() }]);
+    setToDoList([
+      ...toDoList,
+      { ...todoToAdd, id: Date.now(), completed: false },
+    ]);
   }
 
   const searchedToDoList = useMemo(() => {

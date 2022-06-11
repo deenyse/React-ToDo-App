@@ -137,15 +137,17 @@ function TopPanel(props) {
             setAddBody(e.target.value);
           }}
         />
-        <button
-          className="deleteButton"
-          onClick={() => {
-            setIsActiveModal(false);
-            setAddBody("");
-            setAddTitle("");
-          }}
-        />
-        <button className="applyButton" onClick={() => handleTodoAdd()} />
+        <div className="buttonArea">
+          <button
+            className="deleteButton"
+            onClick={() => {
+              setIsActiveModal(false);
+              setAddBody("");
+              setAddTitle("");
+            }}
+          />
+          <button className="applyButton" onClick={() => handleTodoAdd()} />
+        </div>
       </ToDoMaker>
     </>
   );

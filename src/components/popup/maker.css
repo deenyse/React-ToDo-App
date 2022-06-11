@@ -26,7 +26,7 @@
   padding: 25px;
   margin: 10px auto;
 
-  height: 250px;
+  height: 270px;
 
   background-color: rgb(97, 99, 118);
   border-radius: 10px;
@@ -44,7 +44,7 @@
 .modal__content input {
   transition: 0s;
 
-  width: calc(100% - 31px);
+  width: calc(100% - 36px);
   padding: 15px;
 
   height: 40px;
@@ -69,11 +69,13 @@
 }
 
 .modal__content textarea {
-  width: calc(100% - 31px);
+  width: calc(100% - 36px);
+
+  margin-top: 15px;
 
   padding: 15px;
 
-  min-height: 110px;
+  height: 110px;
 
   color: rgb(134, 183, 223);
   font-weight: bold;
@@ -100,6 +102,13 @@
   transform: scale(1);
 }
 
+.buttonArea {
+  position: relative;
+  top: 8px;
+  height: 30px;
+  width: 100%;
+}
+
 button {
   border: none;
 
@@ -116,11 +125,14 @@ button:hover {
 }
 
 .deleteButton {
-  background-image: url("../../images/deleteIcon.png");
+  background-image: url("../../images/blueDeleteIcon.png");
   background-size: cover;
 }
 
 .applyButton {
   background-image: url("../../images/applyIcon.png");
   background-size: cover;
+
+  position: absolute;
+  right: 0px;
 }

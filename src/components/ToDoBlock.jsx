@@ -3,6 +3,7 @@ import "./componentStyles/todoStyle.css";
 function ToDoBlock(props) {
   const [isBootomActive, setIsBootomActive] = useState(false);
 
+  //TODO: переписать логику стилей без участия евента
   function bottomActiveChangeHandler(event) {
     setIsBootomActive(!isBootomActive);
     if (isBootomActive) {
@@ -42,8 +43,8 @@ function ToDoBlock(props) {
       {isBootomActive && (
         <div className="botoomPart">
           <div className="bottomButtonBlock">
-            <button onClick={deleteHandler}>Delete</button>
-            <button>Edit</button>
+            <button className=" whiteDeleteButton" onClick={deleteHandler} />
+            <button className=" editButton" />
           </div>
           {props.body && <div className="botoomBar">{props.body}</div>}
         </div>

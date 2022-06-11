@@ -10,7 +10,7 @@ function postToToDo(post) {
 async function setToDo(setterFunc) {
   const response = await axios.get(
     "https://jsonplaceholder.typicode.com/posts",
-    { params: { _limit: 3 } },
+    { params: { _limit: 6 } },
   );
   setterFunc(response.data.map(postToToDo));
 }

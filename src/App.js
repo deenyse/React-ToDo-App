@@ -36,6 +36,14 @@ function App() {
     ]);
   }
 
+  function todoEditer(editedToDo) {
+    //delete todoById
+    //clearList == listWithout editingTODO
+    const clearList = [...toDoList].filter((el) => el.id !== editedToDo.id);
+
+    setToDoList([...clearList, editedToDo]);
+  }
+
   const searchedToDoList = useMemo(() => {
     if (searchQuery) {
       return [...toDoList].filter((el) =>
@@ -74,6 +82,7 @@ function App() {
         toDoList={filteredAndSearchedToDoList}
         completeChanger={completeChanger}
         todoDeleter={todoDeleter}
+        todoEditer={todoEditer}
       />
     </div>
   );

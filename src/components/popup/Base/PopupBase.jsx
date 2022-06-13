@@ -5,13 +5,13 @@ function PopupBase(props) {
   return (
     <div
       className={`modal ${props.isActiveModal ? "modal_active" : ""}`}
-      onClick={() => props.setIsActiveModal(false)}
+      onMouseUp={() => props.setIsActiveModal(false)}
     >
       <div
         className={`modal__content ${
           props.isActiveModal ? "modal__content_active" : ""
         }`}
-        onClick={(e) => e.stopPropagation()}
+        onMouseUp={(e) => e.stopPropagation()}
       >
         {props.children}
       </div>

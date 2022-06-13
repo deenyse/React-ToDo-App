@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ToDoMaker from "../popup/Maker/TodoMaker";
+import ToDoMaker from "../popup/LogicBlocks/TodoMaker";
 import "./Top.css";
 
 function TopPanel(props) {
@@ -99,7 +99,8 @@ function TopPanel(props) {
       <ToDoMaker
         isActiveModal={isActiveModal}
         setIsActiveModal={setIsActiveModal}
-      ></ToDoMaker>
+        todoAdder={props.todoAdder}
+      />
     </>
   );
 }

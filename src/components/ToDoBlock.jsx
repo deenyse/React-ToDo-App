@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+
+import TodoEditer from "./popup/LogicBlocks/TodoEditer";
 import "./componentStyles/todoStyle.css";
 
 function ToDoBlock(props) {
   const [isBootomActive, setIsBootomActive] = useState(false);
 
-  //const [isActiveModal, setIsActiveModal] = useState(false);
+  const [isActiveModal, setIsActiveModal] = useState(false);
 
   function deleteHandler() {
-    props.todoDeleter(props.id);
+    props.todoDeleter(props.params.id);
   }
 
   return (
@@ -16,14 +18,14 @@ function ToDoBlock(props) {
         <div className="mainPart">
           <span className="completedPart">
             <input
-              defaultChecked={props.completed}
+              defaultChecked={props.params.completed}
               className="checker"
               type="checkbox"
-              onChange={() => props.completeChanger(props.id)}
+              onChange={() => props.completeChanger(props.params.id)}
             />
           </span>
           <div className="titlePart">
-            <h4 className="title">{props.title}</h4>
+            <h4 className="title">{props.params.title}</h4>
           </div>
           <div className="buttonPart">
             <div className="rotatingButton">
@@ -38,17 +40,26 @@ function ToDoBlock(props) {
         </div>
         {isBootomActive && (
           <div className="botoomPart">
-            {props.body && <div className="botoomBar">{props.body}</div>}
+            {props.params.body && (
+              <div className="botoomBar">{props.params.body}</div>
+            )}
             <div className="bottomButtonBlock">
               <button className=" whiteDeleteButton" onClick={deleteHandler} />
               <button
                 className=" editButton"
-                //onClick={() => setIsActiveModal(true)}
+                onClick={() => setIsActiveModal(true)}
               />
             </div>
           </div>
         )}
       </div>
+      <TodoEditer
+        isActiveModal={isActiveModal}
+        setIsActiveModal={setIsActiveModal}
+        todoToEdit={props.params}
+        deleteThisToDo={deleteHandler}
+        todoEditer={props.todoEditer}
+      />
     </>
   );
 }

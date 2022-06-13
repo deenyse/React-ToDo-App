@@ -9,9 +9,10 @@ function ShowToDo(props) {
         props.toDoList.map((elem) => (
           <ToDoBlock
             key={elem.id}
-            {...elem}
+            params={elem}
             completeChanger={props.completeChanger}
             todoDeleter={props.todoDeleter}
+            todoEditer={props.todoEditer}
           />
         ))
       ) : (

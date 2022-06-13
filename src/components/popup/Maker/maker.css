@@ -1,47 +1,4 @@
-.modal {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  opacity: 0;
-  transition: 0.5s;
-  z-index: 3;
-}
-
-.modal_active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal__content {
-  min-width: 60%;
-  max-width: 80%;
-
-  padding: 25px;
-  margin: 10px auto;
-
-  height: 270px;
-
-  background-color: rgb(97, 99, 118);
-  border-radius: 10px;
-
-  font-family: "Nunito", sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
-
-  transition: 0.5s;
-
-  transform: scale(0.5);
-}
-
-.modal__content input {
+.titleInput {
   transition: 0s;
 
   width: calc(100% - 36px);
@@ -59,12 +16,12 @@
   border: 2px solid rgb(157, 172, 226);
 }
 
-.modal__content input::placeholder {
+.titleInput::placeholder {
   color: rgb(131, 134, 196);
   font-weight: bold;
 }
 
-.modal__content input:focus {
+.titleInput:focus {
   outline: none;
 }
 
@@ -89,17 +46,13 @@
   border: 2px solid rgb(157, 172, 226);
 }
 
-.modal__content textarea:focus {
+.bodyArea:focus {
   outline: none;
 }
 
-.modal__content textarea::placeholder {
+.bodyArea::placeholder {
   color: rgb(131, 134, 196);
   font-weight: bold;
-}
-
-.modal__content_active {
-  transform: scale(1);
 }
 
 .buttonArea {
@@ -125,12 +78,12 @@ button:hover {
 }
 
 .deleteButton {
-  background-image: url("../../images/blueDeleteIcon.png");
+  background-image: url("../../../images/blueDeleteIcon.png");
   background-size: cover;
 }
 
 .applyButton {
-  background-image: url("../../images/applyIcon.png");
+  background-image: url("../../../images/applyIcon.png");
   background-size: cover;
 
   position: absolute;

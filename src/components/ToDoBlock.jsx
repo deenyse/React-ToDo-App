@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./componentStyles/todoStyle.css";
-import ToDoMaker from "./popup/ToDoMaker";
 
 function ToDoBlock(props) {
   const [isBootomActive, setIsBootomActive] = useState(false);
 
-  const [isActiveModal, setIsActiveModal] = useState(false);
+  //const [isActiveModal, setIsActiveModal] = useState(false);
 
   function deleteHandler() {
     props.todoDeleter(props.id);
@@ -44,16 +43,12 @@ function ToDoBlock(props) {
               <button className=" whiteDeleteButton" onClick={deleteHandler} />
               <button
                 className=" editButton"
-                onClick={() => setIsActiveModal(true)}
+                //onClick={() => setIsActiveModal(true)}
               />
             </div>
           </div>
         )}
       </div>
-      <ToDoMaker
-        isActiveModal={isActiveModal}
-        setIsActiveModal={setIsActiveModal}
-      ></ToDoMaker>
     </>
   );
 }

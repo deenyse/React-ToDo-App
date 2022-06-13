@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ToDoMaker from "../popup/ToDoMaker";
+import ToDoMaker from "../popup/Maker/TodoMaker";
 import "./Top.css";
 
 function TopPanel(props) {
@@ -13,17 +13,15 @@ function TopPanel(props) {
   const [isFilter, setIsFilter] = useState(false);
   const [selectedFilter, setSelectedFilter] = props.selectParams;
 
-  useEffect(() => {
-    if (isSearch) {
-      setIsFilter(false);
-    }
-  }, [isSearch]);
+  function handleSearchChange() {
+    setIsSearch(!isSearch);
+    setIsFilter(false);
+  }
 
-  useEffect(() => {
-    if (isFilter) {
-      setIsSearch(false);
-    }
-  }, [isFilter]);
+  function handleFilterChange() {
+    setIsFilter(!isFilter);
+    setIsSearch(false);
+  }
 
   useEffect(() => {
     function handleScroll() {
@@ -43,7 +41,7 @@ function TopPanel(props) {
 
   return (
     <>
-      <div ref={topRef} className="defaultTop header">
+      <div ref={topRef} className={`defaultTop header`}>
         <div className="inToDo">
           <h1>ToDo</h1>
           <div className="controlsBlock">
@@ -58,10 +56,7 @@ function TopPanel(props) {
                 isFilter ? "filtterBlock openedBtnFilter" : "filterBlock"
               }
             >
-              <button
-                className="btnFilter"
-                onClick={() => setIsFilter(!isFilter)}
-              />
+              <button className="btnFilter" onClick={handleFilterChange} />
               {isFilter && (
                 <select
                   className="filterSelect"
@@ -81,10 +76,7 @@ function TopPanel(props) {
                 isSearch ? "searchBlock openedBtnSearch" : "searchBlock"
               }
             >
-              <button
-                className="btnSearch"
-                onClick={() => setIsSearch(!isSearch)}
-              />
+              <button className="btnSearch" onClick={handleSearchChange} />
               {isSearch && (
                 <input
                   type="text"
@@ -107,7 +99,6 @@ function TopPanel(props) {
       <ToDoMaker
         isActiveModal={isActiveModal}
         setIsActiveModal={setIsActiveModal}
-        todoAdder={props.todoAdder}
       ></ToDoMaker>
     </>
   );
